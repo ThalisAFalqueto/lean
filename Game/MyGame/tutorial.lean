@@ -43,9 +43,9 @@ example (a b c : ℕ) : a + (b + 0) + (c + 0) = a + b + c := by
   rw [add_zero b]              -- b + 0 = b
   rfl
 
-/- Sétima questão
-Para todos os números a, succ(a) = a + 1
--/
+  /- Sétima questão
+  Para todos os números a, succ(a) = a + 1
+  -/
 theorem succ_eq_add_one n : succ n = n + 1 := by
   rw [one_eq_succ_zero]        -- succ n = n + succ 0
   rw [add_succ]                -- succ n = succ (n + 0)
