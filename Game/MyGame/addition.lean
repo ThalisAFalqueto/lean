@@ -62,3 +62,22 @@ theorem add_assoc (a b c : ℕ) : a + b + c = a + (b + c) := by
   rw [succ_add]
   rw [add_succ]
   rfl
+
+
+/- Quinta questão
+
+-/
+
+theorem add_right_comm (a b c : ℕ) : a + b + c = a + c + b := by
+  induction c with d hd
+  rw [add_zero]
+  rw [add_zero]
+  rfl
+  rw [add_succ]
+  nth_rewrite 4 [add_comm]
+  nth_rewrite 2 [add_assoc]
+  rw [succ_add]
+  rw [<- add_assoc]
+  nth_rewrite 4 [add_comm]
+  rw [hd]
+  rfl
