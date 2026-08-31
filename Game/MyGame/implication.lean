@@ -12,3 +12,27 @@ example (x y : ℕ) (h: 0 + x = 0 + y + 2) : x = y + 2 := by
   rw [zero_add] at h
   rw [zero_add] at h
   exact h
+
+-- Terceira Questão
+example (x y : ℕ) (h1 : x = 37) (h2 : x = 37 → y = 42) : y = 42 := by
+  apply h2 at h1
+  exact h1
+
+-- Quarta Questão
+example (x : ℕ) (h : x + 1 = 4) : x = 3 := by
+  rw [four_eq_succ_three] at h
+  rw [<- succ_eq_add_one] at h
+  apply succ_inj at h
+  exact h
+
+-- Quinta Questão
+example (x : ℕ) (h: x + 1 = 4) : x = 3 := by
+  apply succ_inj
+  rw [<- four_eq_succ_three]
+  rw [succ_eq_add_one]
+  exact h
+
+-- Sexta Questão
+example (h : ℕ) : x = 37 → x = 37 := by
+  intro h
+  exact h
